@@ -241,14 +241,11 @@ import java.util.Arrays;
 			return totalBalance;
 		}
 	
-	
 //==========================================================================================================================
 // =================================================== CD ACCOUNT METHODS ==================================================
 //==========================================================================================================================
-	
 		
-		
-//*********************************************** PART 1 OF CD - CD Opening Balance  **************************************** 
+//-------------------------------------------------- P1 - CD Opening Balance ---------------------------------------------- 
 // ONLY Offering & Opening Balance - Adding items to an Array
 
 	
@@ -260,10 +257,9 @@ import java.util.Arrays;
 		}
 		cdAccountStorage = newCDStorage;
 		return cdAccountStorage[cdAccountStorage.length-1] = newX;
-		
 	}
 	
-//************************************************** PART 2 OF CD ACCOUNT  ************************************************** 
+//----------------------------------------------------- P2 - CD ACCOUNT --------------------------------------------------- 
 	
 	public CDAccount addCDAccount(CDAccount cdAccount) {
 		CDAccount[] newCDStorage = new CDAccount[cdAccountStorage.length+1];
@@ -272,23 +268,21 @@ import java.util.Arrays;
 		}
 		cdAccountStorage = newCDStorage;
 		return cdAccountStorage[cdAccountStorage.length-1] = cdAccount;
-		
 	}
 
-//************************************************** PART 3 OF CD ACCOUNT  ************************************************** 
+//----------------------------------------------------- P3 - CD ACCOUNT --------------------------------------------------- 
 	
 	public CDAccount[] getCDAccounts() {
 		return cdAccountStorage;
-		
 	}
 	
-//************************************************** PART 4 OF CD ACCOUNT  ************************************************** 
+//----------------------------------------------------- P4 - CD ACCOUNT ---------------------------------------------------
 	
 	public int getNumberOfCDAccounts() {
 		return cdAccountStorage.length;
 	}
 	
-//************************************************** PART 5 OF CD ACCOUNT  ************************************************** 
+//----------------------------------------------------- P5 - CD ACCOUNT ---------------------------------------------------
 	
 	public double getCDBalance() {
 		double total = 0;
@@ -297,18 +291,32 @@ import java.util.Arrays;
 		}
 		return total;
 	}
-	
-//************************************************** PART 6 OF CD ACCOUNT  ************************************************** 	
+
+//----------------------------------------------------- P6 - CD ACCOUNT ---------------------------------------------------	
 	
 	public double getCombinedBalance() {
 		return getCDBalance() + getSavingsBalance() + getCheckingBalance();
 		
 	}
+	
+//------------------------------------------------- ASSIGNMENT 3 AMENDMENTS ----------------------------------------------- 	
 
 @Override
-public int compareTo(AccountHolder o) {
-	// TODO Auto-generated method stub
-	return 0;
-}
+	public int compareTo(AccountHolder otherAccounts) {
+		if(this.getCombinedBalance() > otherAccounts.getCombinedBalance()) {
+			return 1;
+		} 
+		else
+			return -1;
+	}
 
+	
+	
+	public String writeToString() {
+		return this.firstName + this.middleName + this.lastName + this.ssn;
+		
+	}
+	
 }
+	
+	
