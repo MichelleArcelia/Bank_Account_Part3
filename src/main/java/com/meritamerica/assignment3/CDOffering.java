@@ -33,11 +33,16 @@ public class CDOffering {
 	static CDOffering readFromString(String cdOfferingDataString) {
 		
 		String storage1[] = cdOfferingDataString.split(",");
-		int testAccount = Integer.parseInt(storage1[0]);
-		double testAccount = Double.parseDouble(storage1[1]);
+		int testTerm = Integer.parseInt(storage1[0]);
+		double testInterest = Double.parseDouble(storage1[1]);
 		
 		CDOffering offeringA = new CDOffering(testTerm, testInterest);
 		return offeringA;
+	}
+	
+	
+	public String writeToString() {
+		return this.term + "," + this.interestRate;
 	}
 	
 	
