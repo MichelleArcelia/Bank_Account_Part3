@@ -6,6 +6,7 @@
 
 package com.meritamerica.assignment3;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CDAccount extends BankAccount {
