@@ -6,8 +6,6 @@
 
 package com.meritamerica.assignment3;
 
-
-
 import java.util.Arrays;
 
 //==========================================================================================================================
@@ -41,7 +39,7 @@ import java.util.Arrays;
 //==================================================== GET & SET METHODS ===================================================
 //==========================================================================================================================
 	
-// ===== FIRST NAME ===== 
+// ------- FIRST NAME -------
 
 	public String getFirstName() {
 		return firstName;
@@ -51,7 +49,7 @@ import java.util.Arrays;
 		this.firstName = firstName;
 	}
 
-// ===== MIDDLE NAME ===== 
+// ------- MIDDLE NAME -------
 
 	public String getMiddleName() {
 		return middleName;
@@ -61,7 +59,7 @@ import java.util.Arrays;
 		this.middleName = middleName;
 	}
 
-// ===== LAST NAME ===== 
+// ------- LAST NAME -------
 
 	public String getLastName() {
 		return lastName;
@@ -71,7 +69,7 @@ import java.util.Arrays;
 		this.lastName = lastName;
 	}
 
-// ===== SSN ===== 
+// ------- SSN ------- 
 
 	public String getSSN() {
 		return ssn;
@@ -85,7 +83,7 @@ import java.util.Arrays;
 // ================================================ CHECKING ACCOUNT METHODS ===============================================
 //==========================================================================================================================
 	
-//******************************** PART 1 OF CHECKING - Opening Balance to Checking Account ******************************** 
+//----------------------------------- P1 CHECKING: Opening Balance to Checking Account -------------------------------------
 	
 //TOP OF METHOD: checks to see if combined balances are less than 250,000	
 //BOTTOM OF METHOD: ONLY Opening Balance of the checking Account is added to the Account Holder - Adding items to an Array
@@ -99,7 +97,6 @@ import java.util.Arrays;
 		if(totalBalance > 250000) {
 			System.out.println("WARNING! A new Checking account can not be opened until the combined balances of your current accounts are below $250,000.");
 		return;
-		
 	}
 		
 		CheckingAccount newX = new CheckingAccount(openingBalance);
@@ -111,10 +108,9 @@ import java.util.Arrays;
 			checkingStorage[checkingStorage.length-1] = newX;
 	}
 	
-// ***************************** PART 2 OF CHECKING - Adding Amount (not opening balance) to Checking Account *************** 
-	
-//TOP OF METHOD: checks to see if combined balances are less than 250,000	
-//BOTTOM OF METHOD: ONLY Opening Balance of the checking Account is added to the Account Holder - Adding items to an Array
+// ------------------------- P2 CHECKING: Adding Amount (not opening balance) to Checking Account -------------------------
+/* TOP OF METHOD: checks to see if combined balances are less than 250,000	
+* BOTTOM OF METHOD: ONLY Opening Balance of the checking Account is added to the Account Holder - Adding items to an Array */
 		
 		public void addCheckingAccount(CheckingAccount checkingAccount) {
 			
@@ -137,21 +133,21 @@ import java.util.Arrays;
 				checkingStorage[checkingStorage.length-1] = checkingAccount;
 		}
 	
-// ************************************* PART 3 OF CHECKING: Returns the Checking Account *************************************  	
+// --------------------------------------- P3 CHECKING: Returns the Checking Account --------------------------------------- 	
 	
 	public CheckingAccount[] getCheckingAccounts() {
 		//System.out.println("TESTING - CHECKING ACCOUNT IS" + checkingStorage);
 		return checkingStorage;
 	}
 	
-// *************************** PART 4 OF CHECKING: Will return the total number of Checking Accounts ************************** 	
+// ------------------------------- P4 CHECKING: Will return the total number of Checking Accounts -------------------------- 	
 	
 	public int getNumberOfCheckingAccounts() {
 		//System.out.println("TESTING - Total Number of CHECKING Accounts:" + checkingStorage.length);
 		return checkingStorage.length;
 	}
-	
-// **************************** PART 5 OF CHECKING: Add up the total balance of the checking accounts ************************* 	
+
+// ------------------------------- P5 CHECKING: Add up the total balance of the checking accounts --------------------------	
 	
 	double getCheckingBalance() {
 		double totalBalance = 0;
@@ -166,7 +162,7 @@ import java.util.Arrays;
 // ================================================ SAVINGS ACCOUNT METHODS ================================================
 //==========================================================================================================================
 	
-//********************************** PART 1 OF SAVINGS - Opening Balance to Savings Account ******************************** 
+// ------------------------------------- P1 SAVINGS: Opening Balance to Savings Account ------------------------------------
 	
 //TOP OF METHOD: checks to see if combined balances are less than 250,000	
 //BOTTOM OF METHOD: ONLY Opening Balance of the savings Account is added to the Account Holder - Adding items to an Array
@@ -191,7 +187,7 @@ import java.util.Arrays;
 			savingsStorage[savingsStorage.length-1] = newX;
 	}
 	
-// ***************************** PART 2 OF SAVINGS - Adding Amount (not opening balance) to Savings Account *************** 
+// ---------------------------------- P2 SAVINGS: Adding Amount (not opening balance) to Savings Account --------------------
 	
 //TOP OF METHOD: checks to see if combined balances are less than 250,000	
 //BOTTOM OF METHOD: ONLY Opening Balance of the savings Account is added to the Account Holder - Adding items to an Array
@@ -216,21 +212,21 @@ import java.util.Arrays;
 				savingsStorage[savingsStorage.length-1] = savingsAccount;
 		}	
 	
-// ************************************* PART 3 OF SAVINGS: Returns the Savings Account ***************************************  	
+// ----------------------------------------- P3 SAVINGS: Returns the Savings Account --------------------------------------	
 	
 		public SavingsAccount[] getSavingsAccounts() {
 			//System.out.println("TESTING - SAVINGS ACCOUNT IS" + savingsStorage);
 			return savingsStorage;
 		}
 		
-// *************************** PART 4 OF SAVINGS: Will return the total number of savings Accounts *********************** 	
+// ------------------------------- P4 SAVINGS: Will return the total number of savings Accounts ---------------------------	
 		
 		public int getNumberOfSavingsAccounts() {
 			//System.out.println("TESTING - Total Number of Savings Accounts:" + savingsStorage.length);
 			return savingsStorage.length;
 		}
 		
-// ************************** PART 5 OF SAVINGS: Add up the total balance of the savings accounts ************************ 	
+// ------------------------------- P5 SAVINGS: Add up the total balance of the savings accounts --------------------------- 	
 		
 		double getSavingsBalance() {
 			double totalBalance = 0;
@@ -309,14 +305,20 @@ import java.util.Arrays;
 		else
 			return -1;
 	}
-
-	
 	
 	public String writeToString() {
-		return this.firstName + this.middleName + this.lastName + this.ssn;
-		
+		return this.firstName + "," + this.middleName + "," + this.lastName + "," + this.ssn;
 	}
 	
+	
+	static AccountHolder readFromString(String accountHolderData) {
+		String storage1[] = accountHolderData.split(",");
+		try {
+			AccountHolder ah = new AccountHolder(storage1[0], storage1[1], storage1[2], storage1[3]);
+			return ah;
+		}
+		catch(Exception e) {
+			return null;
+		}
+	}
 }
-	
-	
