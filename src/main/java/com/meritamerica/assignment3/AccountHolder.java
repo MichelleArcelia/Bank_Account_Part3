@@ -6,6 +6,7 @@
 
 package com.meritamerica.assignment3;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 //==========================================================================================================================
@@ -311,14 +312,26 @@ import java.util.Arrays;
 	}
 	
 	
-	static AccountHolder readFromString(String accountHolderData) {
-		String storage1[] = accountHolderData.split(",");
+	
+	static AccountHolder readFromString(String accountHolderData) throws Exception{
+		
+		AccountHolder ah;
+		
 		try {
-			AccountHolder ah = new AccountHolder(storage1[0], storage1[1], storage1[2], storage1[3]);
-			return ah;
+			ArrayList<String> TEST = new ArrayList<> (Arrays.asList(accountHolderData.split(",")));
+			ah = new AccountHolder(TEST.get(0), TEST.get(1), TEST.get(2), TEST.get(3));
 		}
-		catch(Exception e) {
-			return null;
+		catch (Exception ex) {
+			throw new java.lang.Exception();
 		}
+		return ah;
+			
 	}
+
 }
+	
+	
+	
+	
+	
+	
