@@ -6,5 +6,5 @@ public class MeritBank {
 		// TODO Auto-generated method stub
 
 	}
-
+	
 }
