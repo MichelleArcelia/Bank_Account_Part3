@@ -313,7 +313,7 @@ import java.util.Arrays;
 	
 	
 	
-	static AccountHolder readFromString(String accountHolderData) throws Exception{
+	public static AccountHolder readFromString(String accountHolderData) throws Exception{
 		
 		AccountHolder ah;
 		

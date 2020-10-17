@@ -57,14 +57,8 @@ public class CDAccount extends BankAccount {
 		return false;
 	}
 	
-	public CDAccount readFromString(String accountData) {
-		SimpleDateFormat dateFormatter = new SimpleDateFormat("mm/dd/yyyy");
+	public static CDAccount readFromString(String accountData) throws ParseException{
 		
-		try {
-			String storage1[] = accountData.split(",");
-			int testAccount = In
-					// FIX MEEEEEEEEEEEEEEEEEEEEEEE
-		}
 		
 	}
 	
