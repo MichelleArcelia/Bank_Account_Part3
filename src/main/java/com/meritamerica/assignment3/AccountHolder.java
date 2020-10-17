@@ -310,9 +310,7 @@ import java.util.Arrays;
 	public String writeToString() {
 		return this.firstName + "," + this.middleName + "," + this.lastName + "," + this.ssn;
 	}
-	
-	
-	
+		
 	public static AccountHolder readFromString(String accountHolderData) throws Exception{
 		
 		AccountHolder ah;
