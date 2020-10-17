@@ -14,7 +14,7 @@ public class CDOffering {
 
 // CONSTRUCTOR
 
-	CDOffering (int term, double interestRate) {
+	public CDOffering (int term, double interestRate) {
 		this.term = term;
 		this.interestRate = interestRate;
 	}
@@ -26,6 +26,10 @@ public class CDOffering {
 	
 	public double getInterestRate() {
 		return interestRate;
+	}
+	
+	public String toString() {
+		return "Your CD Offering Terms: " + this.getTerm() + " Your CD Offering Interest Rate: " + this.getInterestRate();
 	}
 		
 //------------------------------- ASSIGNMENT 3 AMENDMENTS ------------------------------
@@ -44,6 +48,4 @@ public class CDOffering {
 	public String writeToString() {
 		return this.term + "," + this.interestRate;
 	}
-	
-	
 }
