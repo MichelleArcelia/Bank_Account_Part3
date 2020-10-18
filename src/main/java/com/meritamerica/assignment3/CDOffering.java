@@ -48,4 +48,5 @@ public class CDOffering {
 	public String writeToString() {
 		return this.term + "," + this.interestRate;
 	}
+	
 }
