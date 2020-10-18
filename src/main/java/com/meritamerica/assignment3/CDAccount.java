@@ -28,9 +28,9 @@ public class CDAccount extends BankAccount {
 		this.date = new Date();
 	}
 	
-	public CDAccount(int accountNumber, double balance, double interestRate, java.util.Date accountOpeningDate, int term) {
+	public CDAccount(int accountNumber, double balance, double interestRate, java.util.Date accountOpenedOn, int term) {
 		
-		super(accountNumber, balance, interestRate, accountOpeningDate);
+		super(accountNumber, balance, interestRate, accountOpenedOn);
 		this.term = term;
 		
 		//this.offering.setTerm(term);
@@ -84,9 +84,9 @@ public class CDAccount extends BankAccount {
 			int accountNumber = Integer.parseInt(TEST.get(0));
 			double balance = Double.parseDouble(TEST.get(1));
 			double interestRate = Double.parseDouble(TEST.get(2));
-			Date accountOpeningDate = formatter.parse(TEST.get(3));
+			Date accountOpenedOn = formatter.parse(TEST.get(3));
 			int term = Integer.parseInt(TEST.get(4));
-			cdAccount = new CDAccount(accountNumber, balance, interestRate, accountOpeningDate, term);
+			cdAccount = new CDAccount(accountNumber, balance, interestRate, accountOpenedOn, term);
 			
 		}
 		catch (ParseException ex) {
