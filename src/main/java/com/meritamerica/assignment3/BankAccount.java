@@ -103,13 +103,14 @@ public class BankAccount {
 // --------------------------------- Deposit ------------------------------------ 
 	
 	public boolean Deposit (double amount) {
-		if (amount > 0) {
-			balance += amount;
-			return true;
+		
+		if(amount <= 0) {
+			System.out.println("WARNING = Can not deposit a negative amount");
+			return false;
 		}
 		else {
-			System.out.println("Cannot deposit a negative amount");
-			return false;
+			this.balance = this.getBalance() + amount;
+			return true;
 		}
 	}
 	
@@ -118,6 +119,25 @@ public class BankAccount {
 	public double futureValue(int years) {
 		double FV = balance * Math.pow(1.0 + interestRate,years);
 		return FV;
-
 	}
 }
+
+// -------------------------- Assignment 3 Amendments ---------------------------
+
+
+	static BankAcount readFromString(String accountData) {
+		// FIXXXXXXXXX MEEEEEEEEEEEEEE
+	}
+
+
+
+	public String writeToSpring() {
+		SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy");
+	
+		return this.accountNumber + "," + this.balance + "," + this.interestRate + "," + dateFormatter 
+			
+			// FIXXXXXXXXX MEEEEEEEEEEEEEE
+	}
+
+
+
