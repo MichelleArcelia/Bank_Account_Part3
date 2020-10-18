@@ -6,7 +6,7 @@
 
 package com.meritamerica.assignment3;
 
-import java.ParseException;
+
 import java.text.*;
 import java.util.*;
 
@@ -120,24 +120,37 @@ public class BankAccount {
 		double FV = balance * Math.pow(1.0 + interestRate,years);
 		return FV;
 	}
-}
+
 
 // -------------------------- Assignment 3 Amendments ---------------------------
 
 
-	static BankAcount readFromString(String accountData) {
-		// FIXXXXXXXXX MEEEEEEEEEEEEEE
+	public static BankAccount readFromString(String accountData) {
+		
+		SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
+		
+		try {
+			String storage1[] = accountData.split(",");
+			
+			int formattedAccount = Integer.parseInt(storage1[0]);
+			double formattedBalance = Double.parseDouble(storage1[1]);
+			double formattedInterest = Double.parseDouble(storage1[2]);
+			Date formattedDate = dateFormatter.parse(storage1[3]);
+		
+			BankAccount formattedBank = new BankAccount(formattedAccount, formattedBalance, formattedInterest, formattedDate);
+			
+			return formattedBank;
+		}
+		catch (ParseException e) {
+			return null;
+		}
 	}
-
 
 
 	public String writeToSpring() {
+		
 		SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy");
 	
-		return this.accountNumber + "," + this.balance + "," + this.interestRate + "," + dateFormatter 
-			
-			// FIXXXXXXXXX MEEEEEEEEEEEEEE
-	}
-
-
-
+		return this.accountNumber + "," + this.balance + "," + this.interestRate + "," + dateFormatter.format(this.accountOpenedOn); 	
+		}
+}
