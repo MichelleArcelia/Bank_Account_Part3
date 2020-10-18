@@ -89,18 +89,15 @@ public class BankAccount {
 		}
 		else {
 			if((this.getBalance() - amount) < 0) {
-				System.out.println();
+				System.out.println("WARNING - Not enough money in your account!");
+				return false;
+			}
+			else {
+				double newBalance = this.getBalance() - amount;
+				this.balance = newBalance;
+				return true;
 			}
 		}
-
-	    if (amount < balance && amount > 0) {
-	       balance = balance - amount;
-	       return true;
-	    }
-	    else {
-	    	System.out.println ("not enough money in your account!");
-	    	return false;
-	    }
 	}
 
 // --------------------------------- Deposit ------------------------------------ 
