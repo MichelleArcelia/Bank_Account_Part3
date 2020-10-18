@@ -76,7 +76,7 @@ public class CDAccount extends BankAccount {
 	
 	public static CDAccount readFromString(String accountData) throws ParseException{
 		
-		CDAccount cdAccount;
+		CDAccount newCdAccount;
 		 
 		try {
 			ArrayList<String> TEST = new ArrayList<>(Arrays.asList(accountData.split(",")));
@@ -86,21 +86,18 @@ public class CDAccount extends BankAccount {
 			double interestRate = Double.parseDouble(TEST.get(2));
 			Date accountOpenedOn = formatter.parse(TEST.get(3));
 			int term = Integer.parseInt(TEST.get(4));
-			cdAccount = new CDAccount(accountNumber, balance, interestRate, accountOpenedOn, term);
+			newCdAccount = new CDAccount(accountNumber, balance, interestRate, accountOpenedOn, term);
 			
 		}
 		catch (ParseException ex) {
 			throw new java.lang.NumberFormatException();
 			
 		}
-		return cdAccount;
+		return newCdAccount;
 		
 	}
 	
 	public String writeToString() {
 		return this.getAccountNumber() + " , " + this.getBalance() + " , " + this.getinterestRate() + " , " + this.getTerm();
 	}
-	
-	
-	
 }
