@@ -6,11 +6,15 @@
 
 package com.meritamerica.assignment3;
 
+import com.meritamerica.assignment3.CDOffering;
+import com.meritamerica.assignment3.MeritBank;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Formatter;
 
 public class CDAccount extends BankAccount {
 
@@ -77,15 +81,19 @@ public class CDAccount extends BankAccount {
 		try {
 			ArrayList<String> TEST = new ArrayList<>(Arrays.asList(accountData.split(",")));
 			
-			
-			
-			cdAccount = new CDAccount(offer, bal);
+			int accountNumber = Integer.parseInt(TEST.get(0));
+			double balance = Double.parseDouble(TEST.get(1));
+			double interestRate = Double.parseDouble(TEST.get(2));
+			Date accountOpeningDate = formatter.parse(TEST.get(3));
+			int term = Integer.parseInt(TEST.get(4));
+			cdAccount = new CDAccount(accountNumber, balance, interestRate, accountOpeningDate, term);
 			
 		}
-		
-		
-		
-		
+		catch (ParseException ex) {
+			throw new java.lang.NumberFormatException();
+			
+		}
+		return cdAccount;
 		
 	}
 	
