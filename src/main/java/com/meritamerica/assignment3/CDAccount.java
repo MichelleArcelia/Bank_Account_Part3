@@ -6,6 +6,7 @@
 
 package com.meritamerica.assignment3;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,10 +24,13 @@ public class CDAccount extends BankAccount {
 		this.date = new Date();
 	}
 	
-	public CDAccount(int accountNumber, double balance, double interestRate, java.util.Date accountOpenedOn, int term) {
-		super(accountNumber, balance, interestRate, accountOpenedOn);
-		this.offering.setTerm(term);
-		this.offering.setInterestRate(interest);
+	public CDAccount(int accountNumber, double balance, double interestRate, java.util.Date accountOpeningDate, int term) {
+		
+		super(accountNumber, balance, interestRate, accountOpeningDate);
+		this.term = term;
+		
+		//this.offering.setTerm(term);
+		//this.offering.setInterestRate(interest);
 		
 	}
 
@@ -39,7 +43,7 @@ public class CDAccount extends BankAccount {
 	}
 
 	public int getTerm() {
-		return offering.getTerm();
+		return this.offering.getTerm();
 	}
 
 	public Date getStartDate() {
@@ -73,8 +77,7 @@ public class CDAccount extends BankAccount {
 		try {
 			ArrayList<String> TEST = new ArrayList<>(Arrays.asList(accountData.split(",")));
 			
-			CDOffering offer = Double.parseDouble(TEST.get(0));
-			double bal = Double.parseDouble(TEST.get(1));
+			
 			
 			cdAccount = new CDAccount(offer, bal);
 			
