@@ -91,7 +91,7 @@ public class MeritBank {
 	}
 
 	static boolean readFromFile(String filename) throws Exception {
-		CDOffering[] cdOffering;
+		CDOffering[] cdOffering = null; // CANT BE NULL
 		
 		try {
 			
