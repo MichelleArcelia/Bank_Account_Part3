@@ -1,5 +1,4 @@
 package com.meritamerica.assignment3;
-
 import java.io.*;
 import java.util.*;
 
@@ -140,40 +139,38 @@ public class MeritBank {
 
 	static boolean writeToFile(String filename) {
 		try {
-			
-		
-		FileWriter fw = new FileWriter(filename);
-		BufferedWriter bw = new BufferedWriter(fw);
 
-		bw.write(String.valueOf(nextAccount));
-		bw.newLine();
-		bw.write(String.valueOf(myCDOffering.length));
-		bw.newLine();
-		for (int i = 0; i < myCDOffering.length; i++) {
-			bw.write(myCDOffering[i].writeToString());
+			FileWriter fw = new FileWriter(filename);
+			BufferedWriter bw = new BufferedWriter(fw);
+
+			bw.write(String.valueOf(nextAccount));
 			bw.newLine();
-		}
-		bw.write(String.valueOf(myAccountHolder.length));
-		bw.newLine();
-		for (int i = 0; i < myAccountHolder.length; i++) {
-			bw.write(myAccountHolder[i].writeToString());
+			bw.write(String.valueOf(myCDOffering.length));
 			bw.newLine();
-			bw.write(myAccountHolder[i].getNumberOfCheckingAccounts());
-			for (int j = 0; j < myAccountHolder[i].getNumberOfCheckingAccounts(); j++) {
-				bw.write(String.valueOf(myAccountHolder[i].getCheckingAccounts()[j].writeToString()));
+			for (int i = 0; i < myCDOffering.length; i++) {
+				bw.write(myCDOffering[i].writeToString());
+				bw.newLine();
 			}
-			for (int k = 0; k < myAccountHolder[i].getNumberOfSavingsAccounts(); k++) {
-				bw.write(String.valueOf(myAccountHolder[i].getSavingsAccounts()[k].writeToString()));
+			bw.write(String.valueOf(myAccountHolder.length));
+			bw.newLine();
+			for (int i = 0; i < myAccountHolder.length; i++) {
+				bw.write(myAccountHolder[i].writeToString());
+				bw.newLine();
+				bw.write(myAccountHolder[i].getNumberOfCheckingAccounts());
+				for (int j = 0; j < myAccountHolder[i].getNumberOfCheckingAccounts(); j++) {
+					bw.write(String.valueOf(myAccountHolder[i].getCheckingAccounts()[j].writeToString()));
+				}
+				for (int k = 0; k < myAccountHolder[i].getNumberOfSavingsAccounts(); k++) {
+					bw.write(String.valueOf(myAccountHolder[i].getSavingsAccounts()[k].writeToString()));
+				}
+				for (int g = 0; g < myAccountHolder[i].getNumberOfCDAccounts(); g++) {
+					bw.write(String.valueOf(myAccountHolder[i].getCDAccounts()[g].writeToString()));
+				}
 			}
-			for (int g = 0; g < myAccountHolder[i].getNumberOfCDAccounts(); g++) {
-				bw.write(String.valueOf(myAccountHolder[i].getCDAccounts()[g].writeToString()));
-			}
-		}
-		return true;
-		}
-		catch(IOException ex) {
-		System.out.println("No you big dum");
-		return false;
+			return true;
+		} catch (IOException ex) {
+			System.out.println("No you big dum");
+			return false;
 		}
 	}
 

@@ -5,7 +5,7 @@ import java.text.ParseException;
 public class SavingsAccount extends BankAccount {
 	
 		public SavingsAccount(double balance) {
-			super(balance);
+			super(balance, balance);
 		}	
 		public SavingsAccount(long accountNumber, double balance, double interestRate, Date simpleDataFormat) {
 			super(accountNumber, balance, interestRate, simpleDataFormat);
