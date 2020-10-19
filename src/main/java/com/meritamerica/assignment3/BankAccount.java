@@ -6,9 +6,9 @@
 
 package com.meritamerica.assignment3;
 
-
+import java.sql.Date;
 import java.text.*;
-import java.util.*;
+//import java.util.*;
 
 import com.meritamerica.assignment3.MeritBank;
 
@@ -21,6 +21,8 @@ public class BankAccount {
 		private double interestRate;
 		double bankAccount;
 		private java.util.Date accountOpenedOn;
+		private double interestRate2;
+		private double balance2;
 		
 		static SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 
@@ -30,30 +32,37 @@ public class BankAccount {
 		this.balance = balance;
 		this.interestRate = interestRate;
 		this.accountNumber = MeritBank.getNextAccountNumber();
-		this.accountOpenedOn = new java.util.Date();
+		this.accountOpenedOn = new Date(accountNumber);
 		
 	}
 		
-	public BankAccount(double balance, double interestRate, Date accountOpenedOn){
+	public BankAccount(double balance, double interestRate, Date d){
 		
 		this.balance = balance;
 		this.interestRate = interestRate;
-		this.accountOpenedOn = accountOpenedOn;
+		this.accountOpenedOn = d;
 		this.accountNumber = MeritBank.getNextAccountNumber();
 	}
 		
 		
-	public BankAccount(long accountNumber, double balance, double interestRate, Date accountOpenedOn) {
+	public BankAccount(long accountNumber, double balance, double interestRate, java.util.Date accountOpenedOn2) {
 		this.accountNumber = accountNumber;
 		this.balance = balance;
 		this.interestRate = interestRate;
-		this.accountOpenedOn = accountOpenedOn;
+		this.accountOpenedOn = accountOpenedOn2;
 	
 	}
 		
 // ----------------------------- Account Number --------------------------------
 	
-	 public long getAccountNumber() {
+	 public BankAccount(long nextAccountNumber, double balance2, double interestRate2) {
+		 	this.balance2 = balance2;
+			this.interestRate2 = interestRate2;
+			this.accountOpenedOn = d;
+			this.accountNumber = MeritBank.getNextAccountNumber();
+	}
+
+	public long getAccountNumber() {
 		 return this.accountNumber;
 	}
 	 
@@ -135,8 +144,10 @@ public class BankAccount {
 			int formattedAccount = Integer.parseInt(storage1[0]);
 			double formattedBalance = Double.parseDouble(storage1[1]);
 			double formattedInterest = Double.parseDouble(storage1[2]);
-			Date formattedDate = dateFormatter.parse(storage1[3]);
+			Date formattedDate = (Date) dateFormatter.parse(storage1[3]);
 		
+			//Date formattedDate = Date.valueOf(storage1[3]);
+			
 			BankAccount formattedBank = new BankAccount(formattedAccount, formattedBalance, formattedInterest, formattedDate);
 			
 			return formattedBank;

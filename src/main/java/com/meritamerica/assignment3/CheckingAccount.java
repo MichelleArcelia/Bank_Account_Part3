@@ -22,12 +22,7 @@ public class CheckingAccount extends BankAccount {
 				interestRate,simpleDataFormat);
 		return checkingAccountInfo;
 		
-		
-		
-		 
-		
-		// TODO Auto-generated method stub
-		
+
 
 	}
 

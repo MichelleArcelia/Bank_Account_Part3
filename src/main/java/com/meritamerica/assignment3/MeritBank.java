@@ -114,7 +114,7 @@ public class MeritBank {
 				
 			int numberOfCheckingAccount = Integer.parseInt(br.readLine());
 			for(int j =0; j < numberOfCheckingAccount; j++) {
-				accountHolders[i].addCheckingAccount(CheckingAccount.readFromString(br.readLine());
+				accountHolders[i].addCheckingAccount(CheckingAccount.readFromString(br.readLine()));
 				
 			}
 			int numberOfSavingsAccounts = Integer.parseInt(br.readLine());
@@ -123,7 +123,7 @@ public class MeritBank {
 			}
 			int numberOfCDAccount = Integer.parseInt(br.readLine());
 			for(int p =0; p < numberOfCDAccount; p++) {
-				accountHolders[i].addCDAccount(CDAccount.readFromString(br.readLine()))
+				accountHolders[i].addCDAccount(CDAccount.readFromString(br.readLine()));
 			}
 			br.close();
 			}
@@ -158,10 +158,10 @@ public class MeritBank {
 				bw.newLine();
 				bw.write(myAccountHolder[i].getNumberOfCheckingAccounts());
 				for (int j = 0; j < myAccountHolder[i].getNumberOfCheckingAccounts(); j++) {
-					bw.write(String.valueOf(myAccountHolder[i].getCheckingAccounts()[j].writeToString()));
+					bw.write(String.valueOf(myAccountHolder[i].getCheckingAccounts()[j].toString()));
 				}
 				for (int k = 0; k < myAccountHolder[i].getNumberOfSavingsAccounts(); k++) {
-					bw.write(String.valueOf(myAccountHolder[i].getSavingsAccounts()[k].writeToString()));
+					bw.write(String.valueOf(myAccountHolder[i].getSavingsAccounts()[k].toString()));
 				}
 				for (int g = 0; g < myAccountHolder[i].getNumberOfCDAccounts(); g++) {
 					bw.write(String.valueOf(myAccountHolder[i].getCDAccounts()[g].writeToString()));
