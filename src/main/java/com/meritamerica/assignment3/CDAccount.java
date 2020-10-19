@@ -21,9 +21,10 @@ public class CDAccount extends BankAccount {
 	CDOffering offering;
 	private double balance;
 	private Date date;
+	public int term;
 
 	public CDAccount(CDOffering offering, double balance) {
-		super(MeritBank.getNextAccountNUmber(), balance, offering.getInterestRate());
+		super(MeritBank.getNextAccountNumber(), balance, offering.getInterestRate());
 		this.offering = offering;
 		this.date = new Date();
 	}

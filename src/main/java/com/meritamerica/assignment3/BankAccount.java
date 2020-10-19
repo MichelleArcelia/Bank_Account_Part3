@@ -29,7 +29,7 @@ public class BankAccount {
 	public BankAccount(double balance, double interestRate){
 		this.balance = balance;
 		this.interestRate = interestRate;
-		this.accountNumber = MeritBank.getNextAccountNUmber();
+		this.accountNumber = MeritBank.getNextAccountNumber();
 		this.accountOpenedOn = new java.util.Date();
 		
 	}
@@ -39,7 +39,7 @@ public class BankAccount {
 		this.balance = balance;
 		this.interestRate = interestRate;
 		this.accountOpenedOn = accountOpenedOn;
-		this.accountNumber = MeritBank.getNextAccountNUmber();
+		this.accountNumber = MeritBank.getNextAccountNumber();
 	}
 		
 		
