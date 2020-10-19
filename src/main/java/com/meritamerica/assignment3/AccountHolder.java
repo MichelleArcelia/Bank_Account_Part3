@@ -319,7 +319,7 @@ import java.util.Arrays;
 			ArrayList<String> TEST = new ArrayList<> (Arrays.asList(accountHolderData.split(",")));
 			ah = new AccountHolder(TEST.get(0), TEST.get(1), TEST.get(2), TEST.get(3));
 		}
-		catch (Exception ex) {
+		catch (Exception e) {
 			throw new java.lang.Exception();
 		}
 		return ah;

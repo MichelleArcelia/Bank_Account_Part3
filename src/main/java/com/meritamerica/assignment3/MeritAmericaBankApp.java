@@ -10,17 +10,22 @@ package com.meritamerica.assignment3;
 //import java.text.*;
 //import java.util.*;
 
+import java.io.IOException;
+import java.text.ParseException;
+
+
 public class MeritAmericaBankApp {
-	public static void main(String[] args) {
-		
-		
-		MeritBank.readFromFile("Bank_Account_Part3/src/test/testMeritBank_good.txt");
-		
-		
-		
 	
-		//System.out.println(MeritBank.writeToFile());
+	public static void main(String[] args) throws ParseException, NumberFormatException {
 		
-		//MeritBank.writeToFile(null);
+		try {
+		MeritBank.readFromFile("src/test/testMeritBank_good.txt");
+		
+		}
+		catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
 	}
 }

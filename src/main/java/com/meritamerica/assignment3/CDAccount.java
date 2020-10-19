@@ -91,7 +91,7 @@ public class CDAccount extends BankAccount {
 			newCdAccount = new CDAccount(accountNumber, balance, interestRate, accountOpenedOn, term);
 			
 		}
-		catch (ParseException ex) {
+		catch (ParseException e) {
 			throw new java.lang.NumberFormatException();
 			
 		}
