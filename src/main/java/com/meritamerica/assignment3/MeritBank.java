@@ -130,7 +130,7 @@ public class MeritBank {
 			return true;
 					
 		}
-		catch(FileNotFoundException ex) {
+		catch(FileNotFoundException e) {
 			
 			System.out.println("Oops Sorry Not Here");
 			return false;
@@ -168,7 +168,7 @@ public class MeritBank {
 				}
 			}
 			return true;
-		} catch (IOException ex) {
+		} catch (IOException e) {
 			System.out.println("No you big dum");
 			return false;
 		}

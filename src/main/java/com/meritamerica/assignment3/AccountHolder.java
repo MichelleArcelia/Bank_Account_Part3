@@ -89,7 +89,7 @@ import java.util.Arrays;
 //TOP OF METHOD: checks to see if combined balances are less than 250,000	
 //BOTTOM OF METHOD: ONLY Opening Balance of the checking Account is added to the Account Holder - Adding items to an Array
 	
-	public void addCheckingAccount(double openingBalance) {
+	public CheckingAccount addCheckingAccount(double openingBalance) {
 		
 		totalBalance = getCheckingBalance() + getSavingsBalance() + openingBalance;
 		
@@ -97,16 +97,16 @@ import java.util.Arrays;
 		
 		if(totalBalance > 250000) {
 			System.out.println("WARNING! A new Checking account can not be opened until the combined balances of your current accounts are below $250,000.");
-		return;
+		//return;
 	}
-		
+			
 		CheckingAccount newX = new CheckingAccount(openingBalance);
 		CheckingAccount[] newCheckingStorage = new CheckingAccount[checkingStorage.length+1];
 			for(int i = 0; i < newCheckingStorage.length-1; i++) {
 				newCheckingStorage[i] = checkingStorage[i];
 			}
 			checkingStorage = newCheckingStorage;
-			checkingStorage[checkingStorage.length-1] = newX;
+			return checkingStorage[checkingStorage.length-1] = newX;
 	}
 	
 // ------------------------- P2 CHECKING: Adding Amount (not opening balance) to Checking Account -------------------------
@@ -168,7 +168,7 @@ import java.util.Arrays;
 //TOP OF METHOD: checks to see if combined balances are less than 250,000	
 //BOTTOM OF METHOD: ONLY Opening Balance of the savings Account is added to the Account Holder - Adding items to an Array
 	
-	public void addSavingsAccount(double openingBalance) {
+	public SavingsAccount addSavingsAccount(double openingBalance) {
 		
 		totalBalance = getCheckingBalance() + getSavingsBalance() + openingBalance;
 		
@@ -176,7 +176,7 @@ import java.util.Arrays;
 		
 		if(totalBalance > 250000) {
 			System.out.println("WARNING! A new Savings account can not be opened until the combined balances of your current accounts are below $250,000.");
-		return;
+		//return 
 	}
 		
 		SavingsAccount newX = new SavingsAccount(openingBalance);
@@ -185,7 +185,7 @@ import java.util.Arrays;
 				newSavingsStorage[i] = savingsStorage[i];
 			}
 			savingsStorage = newSavingsStorage;
-			savingsStorage[savingsStorage.length-1] = newX;
+			return savingsStorage[savingsStorage.length-1] = newX;
 	}
 	
 // ---------------------------------- P2 SAVINGS: Adding Amount (not opening balance) to Savings Account --------------------

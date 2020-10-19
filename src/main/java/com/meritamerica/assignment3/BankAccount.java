@@ -6,9 +6,10 @@
 
 package com.meritamerica.assignment3;
 
-import java.sql.Date;
+//import java.sql.Date;
 import java.text.*;
-//import java.util.*;
+import java.util.*;
+
 
 import com.meritamerica.assignment3.MeritBank;
 
@@ -17,7 +18,7 @@ public class BankAccount {
 // ----------------------------- VARIABLE -------------------------------------
 	
 		private long accountNumber;
-		private double balance;
+		protected double balance;
 		private double interestRate;
 		double bankAccount;
 		private java.util.Date accountOpenedOn;
@@ -37,20 +38,20 @@ public class BankAccount {
 		
 	}
 		
-	public BankAccount(double balance, double interestRate, Date d){
+	public BankAccount(double balance, double interestRate, java.util.Date accountOpenedOn){
 		
 		this.balance = balance;
 		this.interestRate = interestRate;
-		this.accountOpenedOn = d;
+		this.accountOpenedOn = accountOpenedOn;
 		this.accountNumber = MeritBank.getNextAccountNumber();
 	}
 		
 		
-	public BankAccount(long accountNumber, double balance, double interestRate, java.util.Date accountOpenedOn2) {
+	public BankAccount(long accountNumber, double balance, double interestRate, java.util.Date accountOpenedOn) {
 		this.accountNumber = accountNumber;
 		this.balance = balance;
 		this.interestRate = interestRate;
-		this.accountOpenedOn = accountOpenedOn2;
+		this.accountOpenedOn = accountOpenedOn;
 	
 	}
 		
@@ -69,8 +70,8 @@ public class BankAccount {
 		 return this.accountNumber;
 	}
 	 
-	public void setAccountNumber(long accountNumber) {
-		this.accountNumber = accountNumber;
+	public long setAccountNumber() {
+		return this.accountNumber;
 	}
 
 // ----------------------------- Balance ---------------------------------------
@@ -93,7 +94,7 @@ public class BankAccount {
 
 // -------------------------------- Withdraw -----------------------------------
 	
-	public boolean Withdraw (double amount) {
+	public boolean withdraw (double amount) {
 		
 		if (amount < 0) {
 			System.out.println("WARNING - Can not withdraw a negative amount! Please Try again");
@@ -114,7 +115,7 @@ public class BankAccount {
 
 // --------------------------------- Deposit ------------------------------------ 
 	
-	public boolean Deposit (double amount) {
+	public boolean deposit (double amount) {
 		
 		if(amount <= 0) {
 			System.out.println("WARNING = Can not deposit a negative amount");

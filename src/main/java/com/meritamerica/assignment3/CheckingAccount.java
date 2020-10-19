@@ -1,22 +1,48 @@
 package com.meritamerica.assignment3;
-import java.sql.Date;
+
 import java.text.ParseException;
+import java.util.*;
+import java.sql.Date;
+
 
 public class CheckingAccount extends BankAccount {
 	
-		public CheckingAccount(double balance) {
-			super(balance, balance);
-		}	
-		public CheckingAccount(long accountNumber, double balance, double interestRate, Date simpleDataFormat) {
-			super(accountNumber, balance, interestRate, simpleDataFormat);
+	//private static final double INTEREST_RATE = 0.0001;
+	private static double balance;
+	private static double interestRate = 0.0001;
+	private static Date date;
+	
+	
+		public CheckingAccount() {
+			super(MeritBank.getNextAccountNumber(), balance, interestRate, date);
 		}
+		
+		public CheckingAccount(double openingBalance) {
+			super(MeritBank.getNextAccountNumber(), openingBalance, interestRate);
+		}
+	
+		public CheckingAccount(double openingBalance, double interestRate) {
+			super(openingBalance, interestRate);
+		}	
+		
+		
+		public CheckingAccount(long accountNumber, double openingBalance, double interestRate, Date date) {
+			super(accountNumber, openingBalance, interestRate, date);
+		}
+			
+
+		
 	//1,1000,0.0001,01/01/2020
+		
+		
+		
 	static CheckingAccount readFromString(String accountData) throws ParseException {
 		String[]chd = accountData.split(",");
 		
 		long accountNumber = Long.parseLong(chd[0]);
 		double balance = Double.parseDouble(chd[1]);
 		double interestRate = Double.parseDouble(chd[2]);
+		
 		Date simpleDataFormat = Date.valueOf(chd[3]);
 		CheckingAccount checkingAccountInfo = new CheckingAccount(accountNumber, balance,
 				interestRate,simpleDataFormat);
@@ -24,6 +50,13 @@ public class CheckingAccount extends BankAccount {
 		
 
 
+	}
+	
+	
+	public String toString() {
+		
+		return "CHECKING ACCOUNT BALANCE" + getBalance() + "CHECKING INTEREST RATE" + getInterestRate() + "CHECKING ACCOUNT BALANCE IN 3 YEARS:" + futureValue(3);
+		
 	}
 
 }
