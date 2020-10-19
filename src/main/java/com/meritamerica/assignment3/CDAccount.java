@@ -86,6 +86,8 @@ public class CDAccount extends BankAccount {
 			int accountNumber = Integer.parseInt(TEST.get(0));
 			double balance = Double.parseDouble(TEST.get(1));
 			double interestRate = Double.parseDouble(TEST.get(2));
+			
+			
 			Date accountOpenedOn = formatter.parse(TEST.get(3));
 			int term = Integer.parseInt(TEST.get(4));
 			newCdAccount = new CDAccount(accountNumber, balance, interestRate, accountOpenedOn, term);

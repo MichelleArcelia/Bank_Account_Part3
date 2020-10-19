@@ -22,7 +22,7 @@ public class MeritAmericaBankApp {
 		MeritBank.readFromFile("src/test/testMeritBank_good.txt");
 		
 		}
-		catch (IOException e) {
+		catch (Exception e) {
 			
 			e.printStackTrace();
 		}

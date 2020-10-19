@@ -90,8 +90,8 @@ public class MeritBank {
 		return value;
 	}
 
-	static boolean readFromFile(String filename) throws Exception {
-		CDOffering[] cdOffering = null; // CANT BE NULL
+	static boolean readFromFile(String filename)  {
+		//CDOffering[] cdOffering = null; // CANT BE NULL
 		
 		try {
 			
@@ -104,33 +104,41 @@ public class MeritBank {
 			
 			myCDOffering = new CDOffering[numberOfCDOfferings];
 			for(int i =0; i < numberOfCDOfferings; i++) {
-				cdOffering[i] = CDOffering.readFromString(br.readLine());
+				myCDOffering[i] = CDOffering.readFromString(br.readLine());
 				
 			}
 			int numberOfAccountHolders = Integer.parseInt(br.readLine());
 			AccountHolder[] accountHolders = new AccountHolder[numberOfAccountHolders];
+			
 			for(int i = 0; i < accountHolders.length; i++) {
-				accountHolders[i] = AccountHolder.readFromString(br.readLine());
+				
+				String accountHolder = br.readLine();
+				accountHolders[i] = AccountHolder.readFromString(accountHolder);
+				
 				
 			int numberOfCheckingAccount = Integer.parseInt(br.readLine());
+			
 			for(int j =0; j < numberOfCheckingAccount; j++) {
 				accountHolders[i].addCheckingAccount(CheckingAccount.readFromString(br.readLine()));
 				
 			}
 			int numberOfSavingsAccounts = Integer.parseInt(br.readLine());
+			
 			for(int k =0; k < numberOfSavingsAccounts; k++) {
 				accountHolders[i].addSavingsAccount(SavingsAccount.readFromString(br.readLine()));
 			}
 			int numberOfCDAccount = Integer.parseInt(br.readLine());
+			
 			for(int p =0; p < numberOfCDAccount; p++) {
 				accountHolders[i].addCDAccount(CDAccount.readFromString(br.readLine()));
 			}
-			br.close();
+			
 			}
+			br.close();
 			return true;
-					
 		}
-		catch(FileNotFoundException e) {
+		
+		catch(Exception e) {
 			
 			System.out.println("Oops Sorry Not Here");
 			return false;

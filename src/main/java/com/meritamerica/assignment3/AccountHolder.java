@@ -311,17 +311,20 @@ import java.util.Arrays;
 		return this.firstName + "," + this.middleName + "," + this.lastName + "," + this.ssn;
 	}
 		
-	public static AccountHolder readFromString(String accountHolderData) throws Exception{
+	public static AccountHolder readFromString(String accountHolderData) throws Exception {
 		
 		AccountHolder ah;
 		
-		try {
+		
 			ArrayList<String> TEST = new ArrayList<> (Arrays.asList(accountHolderData.split(",")));
+			
+			if (TEST.size() != 4) {
+				
+				throw new Exception(" INVAILD ");
+				
+			}
 			ah = new AccountHolder(TEST.get(0), TEST.get(1), TEST.get(2), TEST.get(3));
-		}
-		catch (Exception e) {
-			throw new java.lang.Exception();
-		}
+		
 		return ah;
 			
 	}
