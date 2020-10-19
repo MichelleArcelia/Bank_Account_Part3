@@ -90,7 +90,7 @@ public class MeritBank {
 		return value;
 	}
 
-	static boolean readFromFile(String filename) throws IOException {
+	static boolean readFromFile(String filename) throws Exception {
 		CDOffering[] cdOffering;
 		
 		try {

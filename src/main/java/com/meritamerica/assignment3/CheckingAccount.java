@@ -11,7 +11,7 @@ public class CheckingAccount extends BankAccount {
 			super(accountNumber, balance, interestRate, simpleDataFormat);
 		}
 	//1,1000,0.0001,01/01/2020
-	static CheckingAccount readFromFile(String accountData) throws ParseException {
+	static CheckingAccount readFromString(String accountData) throws ParseException {
 		String[]chd = accountData.split(",");
 		
 		long accountNumber = Long.parseLong(chd[0]);

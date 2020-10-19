@@ -137,7 +137,7 @@ public class BankAccount {
 // -------------------------- Assignment 3 Amendments ---------------------------
 
 
-	public static BankAccount readFromString(String accountData) throws ParseException {
+	static BankAccount readFromString(String accountData) throws ParseException {
 		
 		SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
 		

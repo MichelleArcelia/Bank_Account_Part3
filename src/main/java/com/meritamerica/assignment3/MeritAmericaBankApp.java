@@ -16,7 +16,7 @@ import java.text.ParseException;
 
 public class MeritAmericaBankApp {
 	
-	public static void main(String[] args) throws ParseException, NumberFormatException {
+	public static void main(String[] args) throws Exception {
 		
 		try {
 		MeritBank.readFromFile("src/test/testMeritBank_good.txt");
