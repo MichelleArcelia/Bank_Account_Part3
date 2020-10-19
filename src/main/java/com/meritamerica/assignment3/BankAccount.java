@@ -21,6 +21,7 @@ public class BankAccount {
 		private double interestRate;
 		double bankAccount;
 		private java.util.Date accountOpenedOn;
+		
 		private double interestRate2;
 		private double balance2;
 		
@@ -55,9 +56,11 @@ public class BankAccount {
 		
 // ----------------------------- Account Number --------------------------------
 	
+	// METHOD ADDED TO MAKE CDACCOUNT LINE 26 WORK
 	 public BankAccount(long nextAccountNumber, double balance2, double interestRate2) {
 		 	this.balance2 = balance2;
 			this.interestRate2 = interestRate2;
+			java.util.Date d = null;
 			this.accountOpenedOn = d;
 			this.accountNumber = MeritBank.getNextAccountNumber();
 	}
@@ -134,7 +137,7 @@ public class BankAccount {
 // -------------------------- Assignment 3 Amendments ---------------------------
 
 
-	public static BankAccount readFromString(String accountData) {
+	public static BankAccount readFromString(String accountData) throws ParseException {
 		
 		SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
 		

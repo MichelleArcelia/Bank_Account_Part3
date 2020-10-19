@@ -6,17 +6,21 @@
 
 package com.meritamerica.assignment3;
 
-import java.io.*;
-import java.text.*;
-import java.util.*;
+//import java.io.*;
+//import java.text.*;
+//import java.util.*;
 
 public class MeritAmericaBankApp {
 	public static void main(String[] args) {
 		
-		MeritBank.readFromFile("src/test/testMeritBank_good.txt");
 		
-		System.out.println(MeritBank.writeToString());
+		MeritBank.readFromFile("Bank_Account_Part3/src/test/testMeritBank_good.txt");
 		
-		MeritBank.writeToFile();
+		
+		
+	
+		//System.out.println(MeritBank.writeToFile());
+		
+		//MeritBank.writeToFile(null);
 	}
 }

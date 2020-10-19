@@ -76,7 +76,7 @@ public class CDAccount extends BankAccount {
 		return false;
 	}
 	
-	public static CDAccount readFromString(String accountData) throws ParseException{
+	public static CDAccount readFromString(String accountData) throws ParseException, NumberFormatException{
 		
 		CDAccount newCdAccount;
 		 
