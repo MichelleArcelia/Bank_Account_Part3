@@ -93,7 +93,7 @@ import java.util.Arrays;
 		
 		totalBalance = getCheckingBalance() + getSavingsBalance() + openingBalance;
 		
-		System.out.println("Checking Total Balance:" + totalBalance);
+		//System.out.println("Checking Total Balance:" + totalBalance);
 		
 		if(totalBalance > 250000) {
 			System.out.println("WARNING! A new Checking account can not be opened until the combined balances of your current accounts are below $250,000.");
@@ -101,11 +101,13 @@ import java.util.Arrays;
 	}
 			
 		CheckingAccount newX = new CheckingAccount(openingBalance);
+		
 		CheckingAccount[] newCheckingStorage = new CheckingAccount[checkingStorage.length+1];
 			for(int i = 0; i < newCheckingStorage.length-1; i++) {
 				newCheckingStorage[i] = checkingStorage[i];
 			}
 			checkingStorage = newCheckingStorage;
+			
 			return checkingStorage[checkingStorage.length-1] = newX;
 	}
 	
@@ -324,8 +326,10 @@ import java.util.Arrays;
 				throw new Exception(" INVAILD ");
 				
 			}
-			ah = new AccountHolder(TEST.get(0), TEST.get(1), TEST.get(2), TEST.get(3));
+			ah = new AccountHolder(TEST.get(2), TEST.get(1), TEST.get(0), TEST.get(3));
 		
+			System.out.println("NAME: " + ah.getFirstName());
+			
 		return ah;
 			
 	}

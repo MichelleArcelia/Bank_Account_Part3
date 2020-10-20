@@ -7,14 +7,21 @@ public class MeritBank {
 	static CDOffering myCDOffering[] = new CDOffering[0];
 	static CDAccount myCDAccount[] = new CDAccount[0];
 	private static long nextAccount = 0;
+	private static int counter = 0;
 
 	public static void addAccountHolder(AccountHolder accountHolder) {
-		AccountHolder[] myAccountHolder1 = new AccountHolder[myAccountHolder.length + 1];
-		for (int i = 0; i < myAccountHolder.length; i++) {
+		
+		if(counter == myAccountHolder.length) {
+		
+		AccountHolder[] myAccountHolder1 = new AccountHolder[counter + 1];
+		
+		for (int i = 0; i < counter; i++) {
 			myAccountHolder1[i] = myAccountHolder[i];
 		}
-		myAccountHolder = myAccountHolder1;
-		myAccountHolder[myAccountHolder.length - 1] = accountHolder;
+			
+			myAccountHolder = myAccountHolder1;
+		}
+			myAccountHolder[counter++] = accountHolder;
 
 	}
 
@@ -71,7 +78,7 @@ public class MeritBank {
 	}
 
 	public static long getNextAccountNumber() {
-		return nextAccount += 1;
+		return nextAccount;
 	}
 
 	public static double totalBalances() {
@@ -92,8 +99,10 @@ public class MeritBank {
 
 	static boolean readFromFile(String filename)  {
 		//CDOffering[] cdOffering = null; // CANT BE NULL
-		
+		AccountHolder accountHolders;
 		try {
+			
+			//String accountHolder = br.readLine();
 			
 			FileReader fr = new FileReader(filename);
 			BufferedReader br = new BufferedReader(fr);
@@ -106,31 +115,40 @@ public class MeritBank {
 			for(int i =0; i < numberOfCDOfferings; i++) {
 				myCDOffering[i] = CDOffering.readFromString(br.readLine());
 				
+				
 			}
-			int numberOfAccountHolders = Integer.parseInt(br.readLine());
-			AccountHolder[] accountHolders = new AccountHolder[numberOfAccountHolders];
 			
-			for(int i = 0; i < accountHolders.length; i++) {
+			for(CDOffering o: myCDOffering) {
+				System.out.println(o.getInterestRate());
+			}
 				
-				String accountHolder = br.readLine();
-				accountHolders[i] = AccountHolder.readFromString(accountHolder);
+			int numberOfAccountHolders = Integer.parseInt(br.readLine());
+			
+			System.out.println("NUMBER OF ACCOUNT HOLDERS " + numberOfAccountHolders);
+			
+			
+			for(int i = 0; i < numberOfAccountHolders; i++) {
 				
+				
+				addAccountHolder(accountHolders = AccountHolder.readFromString(br.readLine())) ;
+				
+			System.out.println(accountHolders.getFirstName());
 				
 			int numberOfCheckingAccount = Integer.parseInt(br.readLine());
 			
 			for(int j =0; j < numberOfCheckingAccount; j++) {
-				accountHolders[i].addCheckingAccount(CheckingAccount.readFromString(br.readLine()));
-				
+				accountHolders.addCheckingAccount(CheckingAccount.readFromString(br.readLine()));
+				System.out.println("CHECKING BALANCE HERE:" + accountHolders.getCheckingBalance());
 			}
 			int numberOfSavingsAccounts = Integer.parseInt(br.readLine());
 			
 			for(int k =0; k < numberOfSavingsAccounts; k++) {
-				accountHolders[i].addSavingsAccount(SavingsAccount.readFromString(br.readLine()));
+				accountHolders.addSavingsAccount(SavingsAccount.readFromString(br.readLine()));
 			}
 			int numberOfCDAccount = Integer.parseInt(br.readLine());
 			
 			for(int p =0; p < numberOfCDAccount; p++) {
-				accountHolders[i].addCDAccount(CDAccount.readFromString(br.readLine()));
+				accountHolders.addCDAccount(CDAccount.readFromString(br.readLine()));
 			}
 			
 			}
@@ -156,7 +174,7 @@ public class MeritBank {
 			bw.write(String.valueOf(myCDOffering.length));
 			bw.newLine();
 			for (int i = 0; i < myCDOffering.length; i++) {
-				bw.write(myCDOffering[i].writeToString());
+				bw.write(myCDOffering[i].toString());
 				bw.newLine();
 			}
 			bw.write(String.valueOf(myAccountHolder.length));
@@ -184,7 +202,14 @@ public class MeritBank {
 
 	static AccountHolder[] sortAccountHolders() {
 		Arrays.sort(myAccountHolder);
+		
+		for(AccountHolder a: myAccountHolder) {
+			System.out.println("BALANCE HERE:" + a.getCombinedBalance());
+		}
+		
+		System.out.println("INDEX AMOUNT: " + myAccountHolder.length);
 		return myAccountHolder;
+		
 	}
 
 	static void setNextAccountNumber(long nextAccountNumber) {

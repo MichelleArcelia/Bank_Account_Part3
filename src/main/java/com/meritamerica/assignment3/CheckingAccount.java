@@ -53,6 +53,8 @@ public class CheckingAccount extends BankAccount {
 		CheckingAccount checkingAccountInfo = new CheckingAccount(accountNumber, balance,
 				interestRate,date);
 		
+		System.out.println(checkingAccountInfo.getBalance() );
+		
 		return checkingAccountInfo;
 		
 

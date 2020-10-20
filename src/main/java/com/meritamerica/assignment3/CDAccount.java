@@ -22,8 +22,12 @@ public class CDAccount extends BankAccount {
 	private double balance;
 	private Date date;
 	public static int term;
-
 	
+
+
+	public CDAccount(long accountNumber, double balance, double interestRate, Date date, int term) {
+		super(accountNumber, balance, interestRate);
+	}
 	
 	public CDAccount(CDOffering offering, double balance) {
 		
@@ -89,32 +93,40 @@ public class CDAccount extends BankAccount {
 	
 	
 	public static CDAccount readFromString(String string) {
+		
+		CDAccount cd;
+		
 		try {
 			String[] newArray = string.split(",");
 			
-			long accountNumber = Long.valueOf(newArray[0]);
+			long accountNumber = Long.parseLong(newArray[0]);
 			
-			double balance = Double.valueOf(newArray[1]);
+			double balance = Double.parseDouble(newArray[1]);
 			
-			double interestRate = Double.valueOf(newArray[2]);
+			double interestRate = Double.parseDouble(newArray[2]);
 			
 			SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
 			
 			Date date = dateFormatter.parse(newArray[3]);
 			
-			int term = Integer.valueOf(newArray[4]);
+			int term = Integer.parseInt(newArray[4]);
 			
-			return new CDAccount(new CDOffering(term, interestRate), accountNumber, balance, date);
+			cd = new CDAccount(accountNumber, balance, interestRate, date, term);
 			
+			for(String s: newArray) {
+				System.out.println(s);
+			}
 			
 					//CDAccount(long accountNumber, double balance, double interestRate, Date date, int term)
 		}
-		
+	
 		catch (Exception e) {
 			System.out.println("readFromString in CDAccount" + "THIS THREW a NumberFormatException");
 			
 			throw new NumberFormatException();
 		}
+		System.out.println("CD GET BALANCE " + cd.getBalance());
+		return cd;
 	}
 	
 	
