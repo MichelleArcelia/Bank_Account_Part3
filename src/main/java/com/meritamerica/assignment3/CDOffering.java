@@ -8,11 +8,15 @@ package com.meritamerica.assignment3;
 
 public class CDOffering {
 
-	int term;
-	double interestRate;
+	private int term;
+	private double interestRate;
 	
 
 // CONSTRUCTOR
+	
+	public CDOffering() {
+		
+	}
 
 	public CDOffering (int term, double interestRate) {
 		this.term = term;
@@ -34,7 +38,31 @@ public class CDOffering {
 		
 //------------------------------- ASSIGNMENT 3 AMENDMENTS ------------------------------
 	
-	static CDOffering readFromString(String cdOfferingDataString) {
+	
+	public static CDOffering readFromString(String string) {
+		String[] newArray = string.split(",");
+		
+		int term = Integer.valueOf(newArray[0]);
+		
+		double interestRate = Double.valueOf(newArray[1]);
+		
+		return new CDOffering(term, interestRate);
+	}
+	
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+/*	static CDOffering readFromString(String cdOfferingDataString) {
 		
 		String storage1[] = cdOfferingDataString.split(",");
 		int testTerm = Integer.parseInt(storage1[0]);
@@ -50,3 +78,5 @@ public class CDOffering {
 	}
 	
 }
+	
+	*/
