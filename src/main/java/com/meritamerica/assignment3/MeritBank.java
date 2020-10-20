@@ -107,7 +107,7 @@ public class MeritBank {
 			FileReader fr = new FileReader(filename);
 			BufferedReader br = new BufferedReader(fr);
 			
-			nextAccount = Long.valueOf(br.readLine());
+			nextAccount = Long.parseLong(br.readLine());
 			
 			int numberOfCDOfferings = Integer.parseInt(br.readLine());
 			
@@ -129,10 +129,11 @@ public class MeritBank {
 			
 			for(int i = 0; i < numberOfAccountHolders; i++) {
 				
+				String x = br.readLine(); 
 				
-				addAccountHolder(accountHolders = AccountHolder.readFromString(br.readLine())) ;
+				addAccountHolder(accountHolders = AccountHolder.readFromString(x)) ;
 				
-			System.out.println(accountHolders.getFirstName());
+			System.out.println("String: " + x);
 				
 			int numberOfCheckingAccount = Integer.parseInt(br.readLine());
 			
