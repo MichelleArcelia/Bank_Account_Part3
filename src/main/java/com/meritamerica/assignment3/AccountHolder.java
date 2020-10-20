@@ -185,7 +185,8 @@ import java.util.Arrays;
 				newSavingsStorage[i] = savingsStorage[i];
 			}
 			savingsStorage = newSavingsStorage;
-			return savingsStorage[savingsStorage.length-1] = newX;
+			savingsStorage[savingsStorage.length-1] = newX;
+			return newX;
 	}
 	
 // ---------------------------------- P2 SAVINGS: Adding Amount (not opening balance) to Savings Account --------------------

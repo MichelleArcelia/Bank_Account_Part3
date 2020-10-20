@@ -9,13 +9,13 @@ import java.util.Date;
 public class SavingsAccount extends BankAccount {
 	
 	//private static final double INTEREST_RATE = 0.0001;
-	private static double balance;
-	private static double interestRate = 0.0001;
+	//private static double balance;
+	private static double interestRate = 0.01;
 	private static Date date;
 	
 	
 		public SavingsAccount() {
-			super(MeritBank.getNextAccountNumber(), balance, interestRate, date);
+			super(MeritBank.getNextAccountNumber(), 0, interestRate, date);
 		}
 		
 		public SavingsAccount(double openingBalance) {

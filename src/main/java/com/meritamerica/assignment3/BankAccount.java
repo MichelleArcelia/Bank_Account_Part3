@@ -23,9 +23,6 @@ public class BankAccount {
 		double bankAccount;
 		private java.util.Date accountOpenedOn;
 		
-		private double interestRate2;
-		private double balance2;
-		
 		static SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 
 // -------------------- CONSTRUCTOR: Bank Account -----------------------------
@@ -58,9 +55,9 @@ public class BankAccount {
 // ----------------------------- Account Number --------------------------------
 	
 	// METHOD ADDED TO MAKE CDACCOUNT LINE 26 WORK
-	 public BankAccount(long nextAccountNumber, double balance2, double interestRate2) {
-		 	this.balance2 = balance2;
-			this.interestRate2 = interestRate2;
+	 public BankAccount(long nextAccountNumber, double balance, double interestRate) {
+		 	this.balance = balance;
+			this.interestRate = interestRate;
 			java.util.Date d = null;
 			this.accountOpenedOn = d;
 			this.accountNumber = MeritBank.getNextAccountNumber();

@@ -21,8 +21,10 @@ public class CDAccount extends BankAccount {
 	CDOffering offering;
 	private double balance;
 	private Date date;
-	public int term;
+	public static int term;
 
+	
+	
 	public CDAccount(CDOffering offering, double balance) {
 		
 		super(MeritBank.getNextAccountNumber(), balance, offering.getInterestRate());
@@ -30,15 +32,22 @@ public class CDAccount extends BankAccount {
 		this.date = new Date();
 	}
 	
-	public CDAccount(long accountNumber, double balance, double interestRate, java.util.Date accountOpenedOn, int term) {
+	public CDAccount(long accountNumber, double balance, double interestRate, Date date, int term) {
 		
-		super(accountNumber, balance, interestRate, accountOpenedOn);
+		super(accountNumber, balance, interestRate);
 		this.term = term;
+		this.date = date;
 		
 		//this.offering.setTerm(term);
 		//this.offering.setInterestRate(interest);
 		
 	}
+	
+	
+	
+
+	
+	
 
 	public double getBalance() {
 		return super.getBalance();
@@ -49,7 +58,7 @@ public class CDAccount extends BankAccount {
 	}
 
 	public int getTerm() {
-		return this.offering.getTerm();
+		return offering.getTerm();
 	}
 
 	public Date getStartDate() {
@@ -61,7 +70,7 @@ public class CDAccount extends BankAccount {
 	}
 
 	public double futureValue() {
-		return (balance * Math.pow(1.0 + offering.getInterestRate(), offering.getTerm()));
+		return balance * (Math.pow(1.0 + offering.getInterestRate(), offering.getTerm()));
 	}
 	
 //------------------------------------------------- ASSIGNMENT 3 AMENDMENTS -----------------------------------------------
@@ -75,6 +84,45 @@ public class CDAccount extends BankAccount {
 	public boolean deposit(double amount) {
 		return false;
 	}
+	
+	
+	
+	
+	
+	public static CDAccount readFromString(String accountData) throws ParseException {
+		
+		SimpleDateFormat dateFormatter = new SimpleDateFormat ("dd/MM/yyyy");
+		
+		String[]chd = accountData.split(",");
+		
+		long accountNumber = Long.parseLong(chd[0]);
+		double balance = Double.parseDouble(chd[1]);
+		double interestRate = Double.parseDouble(chd[2]);
+		
+		Date date = dateFormatter.parse(chd[3]);
+		
+		CDAccount CDAccountInfo = new CDAccount(accountNumber, balance,
+				interestRate, date, term);
+		
+		return CDAccountInfo;
+		
+
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
 	
 	public static CDAccount readFromString(String accountData) throws ParseException, NumberFormatException{
 		
@@ -101,6 +149,12 @@ public class CDAccount extends BankAccount {
 		
 	}
 	
+	*/
+	
+	
+	
+	
+
 	public String writeToString() {
 		return this.getAccountNumber() + " , " + this.getBalance() + " , " + this.getinterestRate() + " , " + this.getTerm();
 	}
