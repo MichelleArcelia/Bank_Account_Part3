@@ -327,7 +327,7 @@ public class SolutionTest {
     	
     	assertEquals(true, result);
     	assertEquals(11, MeritBank.getNextAccountNumber());
-    	assertEquals(3, MeritBank.getCDOfferings().length);
+    	assertEquals(3, MeritBank.getCDOfferings().length);name	assignment3
     	
     	AccountHolder[] sortedAccountHolders = MeritBank.sortAccountHolders();    	
     	
